@@ -21,4 +21,4 @@ A PHP e-commerce web application
 Currently only Cash on Delivery, has been implemented
 
 
-new commit
+new commit.......
