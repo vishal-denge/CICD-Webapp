@@ -7,7 +7,7 @@ def gitCommit() {
 
 node {
 
-    // Checkout source code from Gitv...
+    // Checkout source code from Gitv...new ranc s created check..chnage
    
     stage 'Checking out scm for repository'
     sh "docker login -u vdenge -p 'v!sh@l123' "
