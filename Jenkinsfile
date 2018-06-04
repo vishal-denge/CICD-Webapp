@@ -11,7 +11,7 @@ node {
    
     stage 'Checking out scm for repository'
     sh "docker login -u vdenge -p 'v!sh@l123' "
-    sh "docker pull aquasec/scanner-cli:2.0"
+    sh "docker pull aquasec/scanner-cli:3.0"
     sh "docker pull vdenge/php10:3231fb4f77264d860065263ba15df9ad99623e7c"
     aqua hideBase: false, hostedImage: '', localImage: 'vdenge/php10:3231fb4f77264d860065263ba15df9ad99623e7c', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', register: false, registry: 'vdenge', showNegligible: true
     checkout scm
