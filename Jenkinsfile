@@ -6,14 +6,8 @@ def gitCommit() {
 }
 
 node {
-
-    // Checkout source code from Gitv...new ranc s created check..chnage,,,,,,,,,,,,,,,,,,,
    
     stage 'Checking out scm for repository'
-    sh "docker login -u vdenge -p 'v!sh@l123' "
-    sh "docker pull aquasec/scanner-cli:3.0"
-    sh "docker pull vdenge/php10:3231fb4f77264d860065263ba15df9ad99623e7c"
-    aqua hideBase: false, hostedImage: '', localImage: 'vdenge/php10:3231fb4f77264d860065263ba15df9ad99623e7c', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', register: false, registry: 'Docker Hub', showNegligible: false
     checkout scm
     stage '(TEST) unit/integration testing'
     checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
@@ -26,17 +20,13 @@ node {
     stage '(BUILD) building image'
     sh "docker build -t vdenge/php10:${gitCommit()} ."
     sh "docker login -u vdenge -p 'v!sh@l123' "
-    //sh "docker login -u vdenge -p 'v!sh@l123' "
-    //sh "docker pull aquasec/scanner-cli:3.0"
+    sh "docker pull aquasec/scanner-cli:3.0"
     sh "docker push vdenge/php10:${gitCommit()}"
     sh "docker pull vdenge/php10:${gitCommit()}"
     aqua hideBase: false, hostedImage: '', localImage: "vdenge/php10:${gitCommit()}", locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', register: false, registry: 'Docker Hub', showNegligible: false
     stage '(PUBLISH) Pushing the image '
     sh "docker push vdenge/php10:${gitCommit()}"
      stage '(DEPLOY) Deploying the container'
-     //sh 'curl -X POST -H "Content-Type: application/json" http://mesomaster02.production.hec.local:8080/v2/groups -d@marathon2.json'
-   // sh 'curl -X POST -H "Content-Type: application/json" http://10.0.1.85:8080/v2/apps -d@marathon.json'
-   // sh 'curl -X POST -H "Content-Type: application/json" http://10.0.1.85:8080/v2/apps -d@msql.json'
    marathon(
      url: 'http://172.29.133.15:8080',
       forceUpdate: true,
@@ -49,7 +39,6 @@ node {
         
         sh 'touch reports/*.xml'
        junit '**/reports/*.xml'
-       // step([$class: 'JUnitResultArchiver', testResults: '**/reports/*.xml'])
        stage 'Clean up'
        
                          
