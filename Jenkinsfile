@@ -27,9 +27,9 @@ node {
     sh "docker build -t vdenge/php10:${gitCommit()} ."
     sh "docker login -u vdenge -p 'v!sh@l123' "
     //sh "docker login -u vdenge -p 'v!sh@l123' "
-    //sh "docker pull aquasec/scanner-cli:1.2"
-    //aqua hideBase: false, hostedImage: '', localImage: 'vishaldenge/php10:${gitCommit()}', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', register: false, registry: 'Docker Hub', showNegligible: true
-    
+    //sh "docker pull aquasec/scanner-cli:3.0"
+    //sh "docker pull vdenge/php10:3231fb4f77264d860065263ba15df9ad99623e7c"
+    aqua hideBase: false, hostedImage: '', localImage: 'vdenge/php10:${gitCommit()}', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', register: false, registry: 'Docker Hub', showNegligible: false
     stage '(PUBLISH) Pushing the image '
     sh "docker push vdenge/php10:${gitCommit()}"
      stage '(DEPLOY) Deploying the container'
