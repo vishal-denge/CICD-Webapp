@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="nosetests" tests="12" errors="0" failures="0" skip="0">
-<testcase name="nosetests" status="run"><error message="exited with error code 1"/></error></testcase>  
+<testcase name="cicd.webapp.shop" status="run"><error message="exited with error code 1"></error></testcase>  
 <testcase classname="cicd.webapp.index" name="cicd_webapp_has_correct_title" time="1.036"></testcase>
 <testcase classname="cicd.webapp.register" name="login_user_was_created" time="0.005"></testcase>
 <testcase classname="cicd.webapp.login" name="test_received_User_login_status_code" time="0.006"></testcase>
