@@ -1,52 +1,3 @@
-
-FROM ubuntu:18.04
-ENV TZ=UTC
-
-RUN export LC_ALL=C.UTF-8
-RUN DEBIAN_FRONTEND=noninteractive
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-RUN apt-get update
-RUN apt-get install -y \
-    sudo \
-    autoconf \
-    autogen \
-    language-pack-en-base \
-    wget \
-    zip \
-    unzip \
-    curl \
-    rsync \
-    ssh \
-    openssh-client \
-    git \
-    build-essential \
-    apt-utils \
-    software-properties-common \
-    nasm \
-    libjpeg-dev \
-    libpng-dev \
-    libpng16-16
-
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-
-RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y php7.2
-RUN command -v php
-
-# Composer
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer && \
-    chmod +x /usr/local/bin/composer && \
-    composer self-update --preview
-RUN command -v composer
-
-# PHPUnit
-RUN wget https://phar.phpunit.de/phpunit.phar
-RUN chmod +x phpunit.phar
-RUN mv phpunit.phar /usr/local/bin/phpunit
-RUN command -v phpunit
-
 FROM php:7.0-apache
 RUN docker-php-ext-install mysqli
 COPY php.ini /usr/local/etc/php/  
@@ -77,10 +28,3 @@ COPY success.php /var/www/html/
 COPY update.php /var/www/html/
 COPY update-cart.php /var/www/html/
 COPY verify.php /var/www/html/
-
-
-COPY /vendor/ /var/www/html/vendor/
-COPY /UnitTestFiles/ /var/www/html/UnitTestFiles/
-COPY composer-setup.php /var/www/html/
-COPY composer.json /var/www/html/
-COPY composer.lock /var/www/html/
