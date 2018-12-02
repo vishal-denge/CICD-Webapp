@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="nosetests" tests="12" errors="0" failures="0" skip="0">
-<testcase classname="cicd.webapp.no-js" name="cicd_webapp_has_correct_title" time="0.036"></testcase>
-<testcase classname="todo.tests.TestCreateTodoItem" name="test_item_was_created" time="0.005"></testcase>
-<testcase classname="todo.tests.TestCreateTodoItem" name="test_received_201_created_status_code" time="0.006"></testcase>
-<testcase classname="todo.tests.TestCreateTodoItem" name="test_received_location_header_hyperlink" time="0.006"></testcase>
-<testcase classname="todo.tests.TestDeleteAllItems" name="test_all_items_were_deleted" time="0.014"></testcase>
-<testcase classname="todo.tests.TestDeleteAllItems" name="test_received_204_no_content_status_code" time="0.013"></testcase>
-<testcase classname="todo.tests.TestDeleteTodoItem" name="test_received_204_no_content_status_code" time="0.009"></testcase>
-<testcase classname="todo.tests.TestDeleteTodoItem" name="test_the_item_was_deleted" time="0.011"></testcase>
+<testcase classname="cicd.webapp.index" name="cicd_webapp_has_correct_title" time="0.036"></testcase>
+<testcase classname="cicd.webapp.register" name="login_user_was_created" time="0.005"></testcase>
+<testcase classname="cicd.webapp.login" name="test_received_User_login_status_code" time="0.006"></testcase>
+<testcase classname="cicd.webapp.products" name="test_received_products_items_hyperlink" time="0.006"></testcase>
+<testcase classname="cicd.webapp.account" name="test_all_items_were_created" time="0.014"></testcase>
+<testcase classname="cicd.webapp.admin" name="test_received_204_no_content_status_code" time="0.013"></testcase>
+<testcase classname="cicd.webapp.cart" name="test_received_204_no_content_status_code" time="0.009"></testcase>
+<testcase classname="cicd.webapp.config" name="test_the_item_was_deleted" time="0.011"></testcase>
 
-<testcase classname="todo.tests.TestPatchTodoItem" name="test_item_was_updated" time="0.012"></testcase>
+<testcase classname="cicd.webapp.insert" name="test_item_was_updated" time="0.012"></testcase>
 
-<testcase classname="todo.tests.TestPatchTodoItem" name="test_received_200_ok_status_code" time="0.010"></testcase>
+<testcase classname="cicd.webapp.logout" name="test_received_200_ok_status_code" time="0.010"></testcase>
 
-<testcase classname="todo.tests.TestUpdateTodoItem" name="test_item_was_updated" time="0.010"></testcase>
+<testcase classname="cicd.webapp.orders" name="test_item_was_updated" time="0.010"></testcase>
 
-<testcase classname="todo.tests.TestUpdateTodoItem" name="test_received_200_created_status_code" time="0.010"></testcase>
+<testcase classname="cicd.webapp.update-cart" name="test_received_200_created_status_code" time="0.010"></testcase>
 
 </testsuite>
