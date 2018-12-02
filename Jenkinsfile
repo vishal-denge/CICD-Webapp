@@ -34,7 +34,7 @@ node {
         appId: 'blog',
         docker: "vdenge/php10:${gitCommit()}".toString()
     )
-   sh "./vendor/bin/phpunit --bootstrap vendor/autoload.php UnitTestFiles/Test/EmailTest"
+   
         stage 'Collect test reports'
         
         sh 'touch reports/*.xml'
