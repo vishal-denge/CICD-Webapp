@@ -29,3 +29,10 @@ COPY success.php /var/www/html/
 COPY update.php /var/www/html/
 COPY update-cart.php /var/www/html/
 COPY verify.php /var/www/html/
+
+
+COPY /vendor/ /var/www/html/vendor/
+COPY /UnitTestFiles/ /var/www/html/UnitTestFiles/
+COPY composer-setup.php /var/www/html/
+COPY composer.json /var/www/html/
+COPY composer.lock /var/www/html/
