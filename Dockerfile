@@ -1,5 +1,5 @@
 FROM php:7.0-apache
-RUN apt-get install -y php7.2
+RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y php7.2
 RUN command -v php
 
 # Composer
