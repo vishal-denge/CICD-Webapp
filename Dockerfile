@@ -1,4 +1,19 @@
 FROM php:7.0-apache
+RUN apt-get install -y php7.2
+RUN command -v php
+
+# Composer
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer && \
+    chmod +x /usr/local/bin/composer && \
+    composer self-update --preview
+RUN command -v composer
+
+# PHPUnit
+RUN wget https://phar.phpunit.de/phpunit.phar
+RUN chmod +x phpunit.phar
+RUN mv phpunit.phar /usr/local/bin/phpunit
+RUN command -v phpunit
 
 RUN docker-php-ext-install mysqli
 COPY php.ini /usr/local/etc/php/  
