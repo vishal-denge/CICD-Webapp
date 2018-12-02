@@ -1,4 +1,5 @@
-FROM php:7.0-apache
+
+FROM ubuntu:18.04
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y php7.2
 RUN command -v php
 
@@ -15,6 +16,7 @@ RUN chmod +x phpunit.phar
 RUN mv phpunit.phar /usr/local/bin/phpunit
 RUN command -v phpunit
 
+FROM php:7.0-apache
 RUN docker-php-ext-install mysqli
 COPY php.ini /usr/local/etc/php/  
 COPY /css/ /var/www/html/css/
