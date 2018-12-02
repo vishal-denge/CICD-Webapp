@@ -1,0 +1,10 @@
+{
+ "re-dev": {
+ "phpunit/phpunit": "^7"
+ },
+ "autoload": {
+ "psr-0": {
+ "UnitTestFiles": ""
+ }
+ }
+}
