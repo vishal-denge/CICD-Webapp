@@ -19,7 +19,7 @@ node {
     //sh 'make test'
     stage '(BUILD) building image'
     sh "docker build -t vdenge/php10:${gitCommit()} ."
-    //sh "docker login -u vdenge -p 'v!sh@l123' "
+    sh "docker login -u vdenge -p 'v!sh@l123' "
     //sh "docker pull aquasec/scanner-cli:3.0"
     //sh "docker push vdenge/php10:${gitCommit()}"
     //sh "docker pull vdenge/php10:${gitCommit()}"
