@@ -4,7 +4,7 @@ def gitCommit() {
     sh "rm -f GIT_COMMIT"
     return gitCommit
 }
-////......................
+////........................
 node {
    
     stage 'Checking out scm for repository'
