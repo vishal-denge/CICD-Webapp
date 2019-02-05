@@ -10,8 +10,8 @@ node {
     stage 'Checking out scm for repository'
     checkout scm
     stage '(BUILD) building image'
-    sh "docker build -t ${URL}:${gitCommit()} ."
-    sh "docker login -u ${username} -p ${password} "
+    sh "docker build -t $URL:${gitCommit()} ."
+    sh "docker login -u $USERNAME-p $PASSWORD "
     stage '(PUBLISH) Pushing the image '
     sh "docker push ${URL}:${gitCommit()}"
     stage '(DEPLOY) Deploying the container'
