@@ -1,0 +1,35 @@
+def gitCommit() {
+    sh "git rev-parse HEAD > GIT_COMMIT"
+    def gitCommit = readFile('GIT_COMMIT').trim()
+    sh "rm -f GIT_COMMIT"
+    return gitCommit
+}
+
+node {
+   
+    stage 'Checking out scm for repository'
+    checkout scm
+    stage '(BUILD) building image'
+    sh "docker build -t ${URL}:${gitCommit()} ."
+    sh "docker login -u ${username} -p ${password} "
+    stage '(PUBLISH) Pushing the image '
+    sh "docker push ${URL}:${gitCommit()}"
+    stage '(DEPLOY) Deploying the container'
+   marathon(
+     url: 'http://172.29.133.15:8080',
+     forceUpdate: true,
+     filename: 'marathon.json',
+     appId: 'blog',
+     docker: "${URL}:${gitCommit()}".toString()
+    )
+   
+        stage 'Collect test reports'
+        
+        sh 'touch reports/*.xml'
+       junit '**/reports/*.xml'
+       stage 'Clean up'
+       
+                         
+   
+
+}
