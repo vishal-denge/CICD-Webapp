@@ -11,7 +11,7 @@ node {
     checkout scm
     stage '(BUILD) building image'
     sh 'echo $URL'
-    sh "docker build -t $URL ."
+    sh "docker build -t $DURL ."
     sh "docker login -u $USERNAME -p $PASSWORD "
     stage '(PUBLISH) Pushing the image '
     sh "docker push ${URL}:${gitCommit()}"
