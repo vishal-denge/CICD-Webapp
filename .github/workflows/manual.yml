@@ -4,34 +4,31 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+# Workflow 1
+workflow "Build Workflow":
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
 
-      # Add build steps here
+        # Add build steps here
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+# Workflow 2
+workflow "Test Workflow":
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
 
-      # Add test steps here
+        # Add test steps here
 
-# Second workflow
-workflow "Deployment Workflow":
-  on:
-    push:
-      tags:
-        - v*
-
+# Workflow 3
+workflow "Deploy Workflow":
   jobs:
     deploy:
       runs-on: ubuntu-latest
