@@ -26,8 +26,8 @@ workflow "Test Workflow":
       steps:
         - name: Checkout repository
           uses: actions/checkout@v2
-
-        # Add test steps here
+        - script: |
+            echo "Running Task 1"
 
 # Workflow 3
 workflow "Deploy Workflow":
@@ -37,5 +37,5 @@ workflow "Deploy Workflow":
       steps:
         - name: Checkout repository
           uses: actions/checkout@v2
-
-        # Add deployment steps here
+        - script: |
+            echo "Running Task 1"
