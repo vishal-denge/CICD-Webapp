@@ -13,6 +13,8 @@ workflow "Build Workflow":
       steps:
         - name: Checkout repository
           uses: actions/checkout@v2
+        - script: |
+            echo "Running Task 1"
 
         # Add build steps here
 
