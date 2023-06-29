@@ -6,6 +6,8 @@ name: Manual workflow22222
 # or API.
 on:
   workflow_dispatch:
+     branches:
+       - slave-1
     # Inputs the workflow accepts.
     inputs:
       name:
