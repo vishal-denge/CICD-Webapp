@@ -31,9 +31,8 @@ jobs:
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
       
-jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  greet2:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
